@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Do You Love Me?</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+  #btnYes {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+</style>
+</head>
+<body>
+<button id="btnYes" onclick="showResult()">Yes</button>
+
+<script>
+  function showResult() {
+    var result = document.createElement('p');
+    result.innerText = "I knew it 😌❤️";
+    document.body.appendChild(result);
+
+    var btnYes = document.getElementById('btnYes');
+    btnYes.style.position = 'absolute';
+    var posX = 0;
+    var posY = 0;
+    var incrementX = 10;
+    var incrementY = 5;
+    var interval = setInterval(function() {
+      posX += incrementX;
+      posY += incrementY;
+      btnYes.style.left = posX + 'px';
+      btnYes.style.top = posY + 'px';
+      if (posX >= window.innerWidth - btnYes.offsetWidth || posX <= 0) {
+        incrementX = -incrementX;
+      }
+      if (posY >= window.innerHeight - btnYes.offsetHeight || posY <= 0) {
+        incrementY = -incrementY;
+      }
+    }, 30);
+  }
+</script>
+</body>
+</html>
